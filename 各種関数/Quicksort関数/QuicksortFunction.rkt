@@ -10,4 +10,6 @@
                (quicksort (remove-if (lambda (w) (< w (car x))) (cdr x))))))
 (define x '(3 1 6 2 2 7 7 6 6 0 1 6 8 3 8))
 (remove-if (lambda (t) (>= t (car  x))) (cdr x))
+;answer (1 2 2 0 1)
 (quicksort x)
+;answer (0 1 1 2 2 3 3 6 6 6 6 7 7 8 8)
