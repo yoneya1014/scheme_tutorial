@@ -1,0 +1,13 @@
+(define nil '())
+(define (remove-if f x)
+  (cond ((null? x)nil)
+        ((f (car x)) (remove-if f (cdr x)))
+        (else (cons (car x) (remove-if f (cdr x))))))
+(define (quicksort x)
+  (if  (null? x) nil
+       (append (quicksort (remove-if (lambda (w) (>= w (car x))) (cdr x)))
+               (cons (car x) nil)
+               (quicksort (remove-if (lambda (w) (< w (car x))) (cdr x))))))
+(define x '(3 1 6 2 2 7 7 6 6 0 1 6 8 3 8))
+(remove-if (lambda (t) (>= t (car  x))) (cdr x))
+(quicksort x)
